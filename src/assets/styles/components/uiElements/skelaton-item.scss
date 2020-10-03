@@ -1,0 +1,32 @@
+@import "../../mainVariables";
+.skelton-item {
+  width: 100%;
+  display: flex;
+  padding:25px 20px;
+  border-bottom:  1px solid $borderColor;
+  flex-direction: column;
+  .ant-skeleton:first-child{
+    .ant-skeleton-title{
+      display: none;
+    }
+    .ant-skeleton-paragraph{
+      margin:0;
+      li{
+        border-radius: 4px;
+        height: 20px;
+        width: 50%;
+      }
+    }
+  }
+  .ant-skeleton:last-child{
+    .ant-skeleton-title{
+      display: none;
+    }
+  }
+  .ant-skeleton-paragraph{
+    li{
+      border-radius: 4px;
+      height: 30px;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@import "../../mainVariables";
+@import "../../mixins";
+
+.conversations-dashboard {
+  width: calc(100% - 350px);
+  height: 100%;
+  background: white;
+  border-left: 1px solid #e7e7e7;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .infinite-scroll-component-wrapper {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    position: relative;
+
+    > div {
+      min-height: 100%;
+      display: flex;
+    }
+  }
+
+  .conversation-content {
+    padding: 10px 30px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column-reverse;
+  }
+
+  .no-messages {
+    padding: 80px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 130px;
+      height: 130px;
+      @media all and (max-width: 576px) {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    .no-message-text {
+      margin: 8px 0;
+      font-size: 20px;
+      color: $lightGreyColor;
+    }
+
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .conversations-dashboard {
+    width: calc(100% - 300px);
+
+    .conversation-content {
+      padding: 10px 20px;
+    }
+
+    .no-messages {
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .no-message-text {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .conversations-dashboard {
+    width: calc(100% - 250px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .conversations-dashboard {
+    width: 100%;
+    .conversation-content {
+      padding: 5px $mainPadding;
+    }
+  }
+}

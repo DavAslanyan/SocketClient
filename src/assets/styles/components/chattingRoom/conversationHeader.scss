@@ -1,0 +1,194 @@
+@import "../../mainVariables";
+@import "../../mixins";
+
+.conversation-header {
+  height: 85px;
+  border-bottom: 1px solid $borderColor;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .user {
+    height: 100%;
+    padding: 10px 60px 10px 20px;
+    display: flex;
+    width: 100%;
+
+    a {
+      display: flex;
+    }
+
+    .user-image {
+      height: 100%;
+      width: 65px;
+
+      img {
+        cursor: pointer;
+        border-radius: 6px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .user-info {
+      height: 100%;
+      padding-top: 3px;
+      padding-left: 15px;
+      font-size: 15px;
+      font-weight: 700;
+
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .user-name {
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+
+      .user-country {
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .back-btn {
+    display: none;
+  }
+
+  .more-icon {
+    position: absolute;
+    height: 100%;
+    @include flex-center;
+    top: 0;
+    right: 30px;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.chat-room-actions {
+  min-width: 180px;
+
+  li {
+    padding: 0 0 0 20px;
+
+    span {
+      display: block;
+      padding: 10px 0;
+    }
+
+    &:not(:last-child) span {
+      border-bottom: 1px solid $borderColor;
+    }
+  }
+
+  .danger-mode {
+    span {
+      color: #ef5d5d
+    }
+  }
+}
+
+@media all and(max-width: 1000px) {
+  .conversation-header {
+    height: 75px;
+
+    .more-icon {
+      right: $mainPadding;
+    }
+
+    .user {
+      .user-image {
+        width: 55px;
+      }
+
+      .user-info {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media all and(max-width: 800px) {
+  .conversation-header {
+    .more-icon {
+      right: 20px;
+    }
+  }
+}
+
+
+@media all and(max-width: 600px) {
+  .conversation-header {
+    .user{
+      padding-left: $mainPadding;
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: $mainPadding;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+@media all and(max-width: 500px) {
+  .conversation-header {
+    height: 55px;
+
+    .back-btn {
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .user {
+      padding: 3px 60px 3px 15px;
+
+      .user-image {
+        width: 49px;
+      }
+
+      .user-info {
+        font-size: 12px;
+        padding-left: 10px;
+      }
+    }
+
+    .more-icon {
+      top: 0;
+      right: 15px;
+
+      svg {
+        width: 18px;
+      }
+    }
+  }
+}
+
+@media all and(max-width: 400px) {
+  .conversation-header {
+    .back-btn {
+      margin-left: 10px;
+    }
+
+    .user {
+      padding: 3px 60px 3px 10px;
+    }
+  }
+}

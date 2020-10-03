@@ -1,0 +1,173 @@
+@import "../../mainVariables";
+@import "../../mixins";
+@import "../../fonts";
+
+.chat-list-item {
+  width: 100%;
+  padding: 10px 15px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  &.active-chat {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 4px;
+      position: absolute;
+      border-radius: 0 10px 10px 0;
+      background-color: $pinkColor;
+    }
+  }
+
+  .chat-group-photo {
+    height: 65px;
+    width: 70px;
+    padding: 0 10px 5px 0;
+    position: relative;
+
+    img {
+      border-radius: 6px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .chat-group-info {
+    height: 65px;
+    width: calc(100% - 70px);
+    border-bottom: 1px solid #e7e7e7;
+    overflow: hidden;
+
+    .last-msg-date {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 11px;
+      line-height: 11px;
+      color: rgba(153, 153, 153, 1);
+    }
+
+    .chat-group-name {
+      font-size: 16px;
+      width: 100%;
+      color: rgba(0, 0, 0, 1);
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .last-msg {
+      position: relative;
+      width: 100%;
+      padding-right: 20px;
+
+      .message {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        color: rgba(153, 153, 153, 1);
+        display: block;
+      }
+
+      .unread-messages-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $pinkColor;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.big-number {
+          width: 22px;
+          height: 22px;
+
+          .count {
+            font-size: 10px;
+            margin-bottom: 1px;
+          }
+        }
+
+        .count {
+          font-size: 10px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .chat-list-item {
+    padding: 5px 10px 0;
+
+    &.active-chat {
+      &:before {
+        width: 3px;
+      }
+    }
+    .chat-group-photo {
+      height: 55px;
+      width: 55px;
+      padding: 0 5px 5px 0;
+      position: relative;
+    }
+    .chat-group-info {
+      height: 55px;
+      width: calc(100% - 50px);
+      .last-msg-date {
+        font-size: 9px;
+        line-height: 10px;
+      }
+      .chat-group-name {
+        font-size: 13px;
+      }
+
+      .last-msg {
+        .message {
+          font-size: 11px;
+        }
+
+        .unread-messages-count {
+          width: 15px;
+          height: 15px;
+
+          .count {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and(max-width: 600px) {
+  .chat-list-item {
+    padding: 5px $mainPadding 0;
+    &:hover {
+      background-color: white;
+    }
+    &.active-chat {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "../../mainVariables";
+
+.notifications-wrapper {
+  .notification-list {
+  padding: 30px;
+    @media all and (max-width: 1000px) {
+      padding: $mainPadding;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../mainVariables";
+
+.notification-card-wrapper {
+  width: 60%;
+  border-bottom: 2px solid $greyBorderColor;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  //align-items: center;
+  position: relative;
+
+  .notification-content {
+    width: calc(100% - 100px);
+    margin-bottom: 30px;
+
+    h2 {
+      color: black;
+      font-family: Medium;
+      color: $darkTextColor;
+    }
+
+    .description {
+      font-size: 18px;
+      color: $lightGreyColor;
+    }
+  }
+
+  .right-part {
+    color: $lightGreyColor;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    background: transparent;
+    color: $pinkColor;
+    font-size: 16px;
+    margin-top: 5px;
+    visibility: hidden;
+  }
+
+  &:hover{
+    .delete-btn {
+      transition: visibility 0.3s;
+      visibility: visible;
+    }
+  }
+}
+
+@media all and (max-width: 1500px) {
+  .notification-card-wrapper {
+    width: 75%;
+
+    .notification-content {
+      .description {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .notification-card-wrapper {
+    width: 85%;
+
+    .notification-content {
+      h2 {
+      }
+    }
+
+    .right-part {
+      font-size: 11px;
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .notification-card-wrapper {
+    width: 100%;
+    //flex-direction: column;
+    align-items: initial;
+
+    .notification-content {
+      h2 {
+      }
+    }
+
+    .right-part {
+      font-size: 11px;
+      //text-align: right;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+
+:root {
+  --brandColor: #ffb385;
+  --brandSecColor: #ff7f45;
+  --mainPadding: 80px;
+  --asideContentWidth: 500px;
+}
+
+$asideContentWidth: var(--asideContentWidth);
+$mainPadding: var(--mainPadding);
+
+//--------Colors---------
+$brandColor: var(--brandColor);
+$brandSecColor: var(--brandSecColor);
+$borderColor: #dddddd;
+$textColor: #282828;
+
+$inputBorderColor: #868686;
+$inputBGColor: #F5F6F7;
+$inputTextColor: #1D1C1D;
+
+$darkBlueColor: #000D3C;
+$pinkColor: #FD345A;
+$greyColor: #667093;
+$greyBgColor: #F2F3F7;
+$greyBorderColor: #E6E8EA;
+$darkTextColor: #2B3142;
+$lightGreyColor: #92969B;
+$greenColor: #0ACC84;
+
+
+@media (max-width: 1700px) {
+  :root {
+    --asideContentWidth: 430px;
+  }
+}
+
+@media (max-width: 1500px) {
+  :root {
+    --asideContentWidth: 380px;
+  }
+}
+
+@media (max-width: 1400px) {
+  :root {
+    --mainPadding: 60px;
+  }
+}
+@media (max-width: 1300px) {
+  :root {
+    --mainPadding: 40px;
+    --asideContentWidth: 350px;
+  }
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --mainPadding: 30px;
+  }
+}
+
+
+@media (max-width: 800px) {
+  :root {
+    --asideContentWidth: 250px;
+    --mainPadding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --mainPadding: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --mainPadding: 10px;
+  }
+}

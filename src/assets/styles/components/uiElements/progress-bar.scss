@@ -1,0 +1,51 @@
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 40px;
+
+  .slide-index {
+    margin-left: 10px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    height: 5px;
+    background: white;
+
+    .stroke {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 5px;
+      z-index: 10;
+      background: #FD345A;
+      display: block;
+      border-radius: 5px;
+      will-change: width;
+      &.animate {
+        animation-duration: 3s;
+        animation-fill-mode: both;
+        animation-name: progress;
+      }
+    }
+  }
+
+  span {
+    color: white;
+  }
+}
+
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

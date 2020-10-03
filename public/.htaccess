@@ -1,0 +1,15 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^ced\.am$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ced\.am$
+RewriteRule (.*)$ https://www.penitentiary.am/$1 [R=301,L]
+
+ RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp [NC,OR]
+        RewriteCond %{QUERY_STRING} _escaped_fragment_
+        RewriteCond %{REQUEST_URI} ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent|\.ttf|\.woff|\.svg))
+
+        RewriteRule ^(index\.html|index\.php)?(.*) http://pre.megazen.studio-one.am:5050/?purge=0&url=%{REQUEST_SCHEME}://%{HTTP_HOST}/$2 [P,END]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]

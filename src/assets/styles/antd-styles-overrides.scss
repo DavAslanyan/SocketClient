@@ -1,0 +1,257 @@
+@import 'mainVariables';
+
+.ant-checkbox-wrapper {
+  & + .ant-checkbox-wrapper {
+    margin-left: 0;
+  }
+
+  .ant-checkbox-inner {
+    border-color: $borderColor!important;
+  }
+
+  &:hover {
+    .ant-checkbox-inner {
+      border-color: $pinkColor;
+    }
+  }
+
+  .ant-checkbox-input:focus {
+    border-color: $pinkColor;
+
+    & + .ant-checkbox-inner {
+      border-color: $pinkColor;
+    }
+  }
+
+
+  .ant-checkbox-checked {
+    .ant-checkbox-inner {
+      background-color: $pinkColor;
+      border-color: $pinkColor!important;
+    }
+
+    &:after {
+      border-color: $pinkColor;
+    }
+  }
+
+}
+
+.ant-select {
+  .ant-select-selection {
+    &:hover, &:active, &:focus {
+      border-color: $borderColor;
+      box-shadow: none;
+    }
+  }
+
+  &.invalid .ant-select-selection {
+
+    border-color: #FF0000;
+  }
+
+  .ant-select-selection__placeholder {
+    color: #9b9b9b;
+    font-size: 13px;
+  }
+
+  .ant-select-selection--single {
+    height: 35px;
+
+    .ant-select-selection__rendered {
+      line-height: 33px;
+
+      &:focus, &:hover, &:active {
+        outline: none;
+      }
+    }
+  }
+
+  .ant-select-search input {
+    outline: none !important;
+    padding: 6px 0;
+  }
+
+  &.ant-select-focused {
+    .ant-select-selection {
+      border: 1px solid $borderColor !important;
+      box-shadow: 0 0 0 0 white !important;
+    }
+  }
+}
+
+
+.ant-select-dropdown-menu-item {
+  background-color: white;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #DDDDDD;
+  }
+
+  &:hover {
+    background-color: rgba(179, 179, 179, 0.38) !important;
+  }
+}
+
+.ant-select-dropdown-menu-item-active {
+  background-color: rgba(255, 255, 255, 0.38) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: #f1f1f1;
+}
+
+.ant-rate-star > div:hover, .ant-rate-star > div:focus {
+  transform: none;
+}
+
+
+.ant-calendar-selected-day {
+  .ant-calendar-date {
+    border-color: $brandColor;
+    color: $brandColor;
+    background-color: white;
+
+    &:hover {
+      //background: #FF0000 !important;
+    }
+  }
+}
+
+.ant-calendar-date {
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background-color: #FF0000;
+  }
+}
+
+.ant-calendar-today .ant-calendar-date {
+  border-color: $borderColor;
+  color: $textColor;
+  background-color: white;
+}
+
+.ant-calendar-disabled-cell .ant-calendar-date {
+  background: #f5f5f5;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.ant-calendar .ant-calendar-ok-btn:not(.ant-calendar-ok-btn-disabled) {
+  background-color: $brandColor;
+  border-color: $brandColor;
+
+  &:hover {
+    background-color: $brandColor;
+    border-color: $brandColor;
+  }
+}
+
+.ant-calendar .ant-calendar-time-picker-btn, .ant-calendar-today-btn {
+  text-transform: capitalize;
+
+  &:hover {
+    color: $brandColor;
+  }
+}
+
+.ant-calendar-picker {
+  border-color: $borderColor;
+
+
+  &:hover .ant-calendar-picker-input {
+    border-color: $brandColor !important;
+  }
+
+  &.error .ant-calendar-picker-input {
+    border: 1px solid #FF0000 !important;
+
+    &:hover {
+      border: 1px solid #FF0000 !important;
+    }
+  }
+
+  .ant-calendar-picker-input:focus {
+    box-shadow: none;
+    border-color: $borderColor;
+  }
+
+  &:focus .ant-calendar-picker-input:not(.ant-input-disabled) {
+    box-shadow: none;
+    border-color: $borderColor;
+  }
+
+  .ant-calendar-picker-input {
+    &:hover {
+      border-color: $brandColor;
+    }
+  }
+
+  .ant-calendar-picker-clear {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-top: -11px;
+    right: 9px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.ant-popover-content {
+  .ant-popover-arrow {
+    display: none;
+  }
+
+  .ant-popover-inner {
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+
+    .ant-popover-inner-content {
+      padding: 0;
+
+    }
+  }
+}
+
+.ant-notification-notice-icon {
+  img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.custom-notification {
+  cursor: pointer;
+}
+
+.notification-success {
+  background-color: #2cb76c;
+
+  .ant-notification-notice-message, .ant-notification-notice-description {
+    color: white !important;
+  }
+
+  .ant-notification-notice-close i {
+    color: white;
+  }
+}
+
+.notification-error {
+  background-color: #fb3838;
+
+  .ant-notification-notice-message, .ant-notification-notice-description {
+    color: white !important;
+  }
+
+  .ant-notification-notice-close i {
+    color: white;
+  }
+}

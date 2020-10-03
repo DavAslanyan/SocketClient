@@ -1,0 +1,16 @@
+@import '../../mainVariables';
+@import '../../mixins';
+
+.letter-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: $pinkColor;
+  @include flex-center;
+
+  span {
+    color: white;
+    font-size: 28px;
+    padding-bottom: 2px;
+  }
+}

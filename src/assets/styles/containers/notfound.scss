@@ -1,0 +1,60 @@
+@import "../mainVariables";
+@import "../mixins";
+
+.notfound {
+  height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 15px;
+  }
+  .no-result-text{
+    font-size: 20px;
+    color: $lightGreyColor;
+  }
+  p {
+    @include font(Regular, 13);
+    text-align: center;
+    margin-bottom: 8px;
+    color: #999;
+  }
+  a {
+    background-color: $darkBlueColor;
+    color: white;
+    @include font(Regular, 12);
+    border: 1px solid;
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    &:hover {
+      background-color: rgba(16,35,60,.95);
+    }
+  }
+}
+@media all and (max-width: 991px) {
+  .notfound {
+    height: calc(100vh - 42px);
+  }
+}
+@media all and (max-width: 576px) {
+  .notfound {
+    img {
+      width: 110px;
+      height: 110px;
+    }
+    .no-result-text{
+      font-size: 16px;
+    }
+    p {
+      @include font(Medium, 20);
+    }
+    a {
+      @include font(Regular, 14);
+    }
+  }
+}

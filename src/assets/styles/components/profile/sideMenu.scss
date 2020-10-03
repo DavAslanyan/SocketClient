@@ -1,0 +1,171 @@
+@import "../../mainVariables";
+
+@media all and (min-width: 1001px) {
+  .left-side-menu {
+    height: calc(100vh - 87px);
+    position: fixed;
+    top: 87px;
+    border-right: 1px solid $borderColor;
+    width: 250px;
+    overflow-y: auto;
+    background: white;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+
+    &.open {
+      width: 250px;
+    }
+
+    .aside-menu-list {
+      padding-top: 10px;
+
+      li {
+        position: relative;
+        cursor: pointer;
+
+        .badge {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          z-index: 1;
+          transform: translateY(-50%);
+
+          .ant-badge-count {
+            background: $pinkColor;
+          }
+        }
+
+        > a {
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          padding: 7px 0;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-decoration: none;
+
+          span {
+            padding: 7px 14px;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            transition: all .2s linear;
+            position: relative;
+
+            &:before {
+              content: '';
+              position: absolute;
+              height: 100%;
+              top: 0;
+              left: 0;
+              border: none;
+              width: 3.5px;
+              border-radius: 0 8px 8px 0;
+              background-color: white;
+              transition: background-color 0.2s;
+            }
+          }
+
+          &.active {
+            span {
+              color: $pinkColor;
+
+              &:before {
+                background-color: $pinkColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .top-side-menu {
+    height: 50px;
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid $greyBorderColor;
+    padding: 0 $mainPadding;
+
+    .aside-menu-list {
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+      li {
+        cursor: pointer;
+        margin-right: 35px;
+        font-size: 16px;
+        display: block;
+
+        a {
+          height: 100%;
+
+          span {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transition: all .2s linear;
+            position: relative;
+            white-space: nowrap;
+
+            &:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border: none;
+              height: 3px;
+              border-radius: 8px 8px 0 0;
+              background-color: white;
+              transition: background-color 0.2s;
+            }
+          }
+
+          &.active {
+            span {
+              color: $pinkColor;
+
+              &:before {
+                background-color: $pinkColor;
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        padding-right: $mainPadding;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .top-side-menu {
+    .aside-menu-list {
+      li {
+        margin-right: 30px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .top-side-menu {
+    .aside-menu-list {
+      li {
+        margin-right: 25px;
+        font-size: 13px;
+      }
+    }
+  }
+}

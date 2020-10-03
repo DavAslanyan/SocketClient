@@ -1,0 +1,249 @@
+@import "mainVariables";
+
+.autorisation-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 107px);
+
+  .form-content {
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+
+    .form-title {
+      font-family: Bold;
+      color: black;
+      margin-bottom: 40px;
+    }
+
+    ///////////////////////////////
+    .custom-input-group{
+      height: 50px;
+      .visibility-icon{
+        bottom: 16px;
+      }
+      input{
+        border: 1px solid #EAEBEC;
+      }
+    }
+    .autorisation-input {
+      width: 100%;
+      height: 50px;
+      background-color: #F5F6F7;
+      border: 1px solid #EAEBEC;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .forgot-password {
+      color: #3C67FF;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .delimiter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 30px 0;
+
+      hr {
+        width: 45%;
+        border-top: 0;
+        border-left: 0;
+        border-color: #E6E6EB;
+      }
+    }
+
+    .sign-in-btn {
+      width: 100%;
+      letter-spacing: 0;
+      position: relative;
+
+      .autorisation-button-image {
+        position: absolute;
+        left: 5px;
+      }
+    }
+
+    .with-google {
+      background-color: #4285F7;
+      margin-bottom: 20px;
+    }
+
+    .with-facebook {
+      background-color: #3D60AC;
+    }
+
+    //  -------- Sign Up ---------
+
+    .accept-privacy-policy {
+      display: flex;
+      align-items: center;
+      margin: 20px 0 60px 0;
+
+      .privacy-policy-checkbox {
+        margin-right: 20px;
+
+        &.error .ant-checkbox-inner {
+          border-color: red !important;
+        }
+
+        .ant-checkbox {
+          .ant-checkbox-inner {
+            width: 22px;
+            height: 22px;
+          }
+
+          .ant-checkbox-inner::after {
+            left: 33%;
+          }
+        }
+      }
+
+      .privacy-policy-link {
+        color: #2464FF;
+        margin-left: 5px;
+      }
+
+      .privacy-policy-delimiter {
+        margin-left: 5px;
+      }
+    }
+
+    //--------------Change, Forgot password---------------
+    .form-title-password {
+      font-family: Bold;
+      color: black;
+      margin-bottom: 15px;
+    }
+
+    .form-description-password {
+      color: $lightGreyColor;
+      margin-bottom: 15px;
+    }
+  }
+
+  .form-password-content {
+    width: 650px;
+
+    .custom-input-group {
+      margin-bottom: 5px;
+    }
+
+    .timer-wrapper {
+      min-height: 21px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .autorisation-page-wrapper {
+    .form-content {
+      padding: 30px;
+      width: 500px;
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .autorisation-page-wrapper {
+    .form-content {
+      padding: 30px;
+      width: 380px;
+
+      .form-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+
+      .autorisation-input {
+        height: 45px;
+      }
+
+      .accept-privacy-policy {
+        margin: 20px 0;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  .autorisation-page-wrapper {
+    .form-content {
+      margin: 20px;
+      padding: 20px !important;
+      width: 100%;
+
+      .autorisation-input {
+        height: 45px;
+      }
+
+      .forgot-password {
+        margin-bottom: 10px;
+      }
+
+      .delimiter {
+        margin: 10px 0;
+      }
+
+      .link-button {
+        height: 40px;
+        .autorisation-button-image {
+          left: 2px;
+        }
+      }
+
+      .form-title-password {
+        font-size: 24px;
+      }
+
+      .form-description-password {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media all and (max-height: 700px) {
+  .autorisation-page-wrapper {
+    .form-content {
+      padding: 30px 50px;
+
+      .autorisation-input {
+        height: 45px;
+      }
+
+      .forgot-password {
+        margin-bottom: 10px;
+      }
+
+      .delimiter {
+        margin: 10px 0;
+      }
+
+      .link-button {
+        height: 40px;
+        .autorisation-button-image {
+          left: 2px;
+        }
+      }
+
+      .form-title-password {
+        font-size: 24px;
+      }
+
+      .form-description-password {
+        font-size: 12px;
+      }
+    }
+  }
+}
