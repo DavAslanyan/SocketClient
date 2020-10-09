@@ -4,7 +4,7 @@ const BASE_URL = "https://api.partsplug.com";
 const AUTH_URL = BASE_URL + "/auth/api/v1";
 const ADMIN_URL =  BASE_URL + "/admin/api/v1";
 const USERS_URL = BASE_URL + "/users/api/v1";
-const MEDIA_URL =  "http://192.168.12.11:3030/api/v1";
+const MEDIA_URL =  "http://192.168.12.11:3040/api/v1";
 const PRODUCTS_URL =  BASE_URL + "/products/api/v1";
 
 const MESSAGE_URL = "http://192.168.12.11:3030/api/v1";

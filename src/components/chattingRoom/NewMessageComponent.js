@@ -1,30 +1,29 @@
 // Import packages
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 // Import styles
 import "../../assets/styles/components/chattingRoom/newMessage.scss";
 
 
 //Import Images
-import {ReactComponent as ClearIcon} from '../../assets/images/icons/ic_clear.svg';
+import { ReactComponent as ClearIcon } from '../../assets/images/icons/ic_clear.svg';
 
 // Import Components
 import Textarea from 'react-textarea-autosize';
-import {Icon} from "antd";
+import { Icon } from "antd";
 
 // Import utils
-import {AddMessage, StartTyping, StopTyping} from "../../socket/emitters";
-import {ACCEPT_TYPES,} from "../../constants/acceptedConsts";
-import {hasExtension} from "../../utils/hasExtension";
+import { AddMessage, StartTyping, StopTyping } from "../../socket/emitters";
+import { ACCEPT_TYPES, } from "../../constants/acceptedConsts";
 //import {DeleteFile} from "../../redux/actions";
-import {MEDIA_Types} from "../../constants/constTypes";
-import {LinkButton} from "../uiElements/buttons";
+import { MEDIA_Types } from "../../constants/constTypes";
+import { LinkButton } from "../uiElements/buttons";
 import isMongoId from "validator/es/lib/isMongoId";
 
 let timeout = undefined;
 
 class NewMessageComponent extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             fileUrl: '',
@@ -119,37 +118,47 @@ class NewMessageComponent extends Component {
         });
     }
 
-    async uploadToServer(file) {
+    async uploadToServer(files) {
+
         const {roomId} = this.props;
         let formData = new FormData();
-        formData.append('file', file, file.name);
+        console.log('files', files)
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            console.log('current file', file,)
+            formData.append('file', file, 'file');
+        }
+
         formData.append('roomId', roomId);
-        let uploadedFile = await this.props.UploadFile(formData, MEDIA_Types.MESSAGE_IMAGE).catch(() => {
+        let uploadedFile = await this.props.UploadFile(formData, MEDIA_Types.MESSAGE_IMAGE).catch((err) => {
+            console.log('err', err?.data)
         });
        // console.log(uploadedFile);
         uploadedFile && this.setState({
             loading: false,
-            fileUrl: uploadedFile?.id,
+            fileUrl: uploadedFile[0]?.id,
         });
         this.state.canceled && this.deleteFile();
     }
 
-    async uploadFile(e) {
-        const {draggedFiles, roomId} = this.props;
-       // console.log(draggedFiles);
-        let file = e && e.target && e.target.files[0];
-        if (draggedFiles) {
-            file = draggedFiles;
+    async uploadFile(e){
+        const { draggedFiles, roomId } = this.props;
+        // console.log(draggedFiles);
+        let files = e && e.target && e.target.files;
+        console.log('file', files, typeof files)
+        if ( draggedFiles ) {
+            files = draggedFiles;
             this.props.clearDataTransferFiles();
         }
-        if (!roomId || !isMongoId(roomId)) {
+        if ( !roomId || !isMongoId(roomId) ) {
             return;
         }
+        // await this.setState({
+        //     loading: true
+        // })
+        const file = files[0];
+        if ( file ) {
 
-        if (file && hasExtension(file.name)) {
-            await this.setState({
-                loading: true
-            })
             const reader = new FileReader();
 
             // Read the image via FileReader API and save image result in state.
@@ -159,12 +168,14 @@ class NewMessageComponent extends Component {
                 // console.log(dataURL);
                 this.setState({
                     fileLocalUrl: dataURL,
-                }, () => this.uploadToServer(file));
+                }, );
             };
             reader.readAsDataURL(file);
         } else {
             // alert('file extensions can only be one of ' + ACCEPT_TYPES.join(','));
         }
+        this.uploadToServer(files)
+
     }
 
     async sendMessage() {
@@ -220,6 +231,7 @@ class NewMessageComponent extends Component {
                                 {roomId ? <>
                                         <Icon type="plus" onClick={() => this.fileSelector.current.click()}/>
                                         <input type="file"
+                                               multiple={true}
                                                ref={this.fileSelector}
                                                onChange={this.uploadFile}
                                                onClick={this.onUploadClick}

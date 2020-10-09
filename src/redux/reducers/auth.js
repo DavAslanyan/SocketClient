@@ -7,8 +7,8 @@ export const initialState = {
         hasMore:false,
     },
     isLoggedIn: true,
-    /*im@*/ accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNzVkZDRlMGQ2OTFiYzkwNTBkOTk4NiIsImlhdCI6MTYwMTcyNzMwNywiZXhwIjoxNjAxODEzNzA3fQ.dZYnhO0XNEE201h3wam9_voexoC-L22obWCVZLJTug0',
-    // accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNzVkZDI1MGQ2OTFiYzkwNTBkOTk2ZSIsImlhdCI6MTYwMTYyMjcyNywiZXhwIjoxNjAxNzA5MTI3fQ.ELLbQBOYo2yCWKXnU7rqpnHEe47qa7HZYpk7h-CPNVk',
+    /*im@*/ accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmNzVkZDRlMGQ2OTFiYzkwNTBkOTk4NiIsImlhdCI6MTYwMjIyOTY1OSwiZXhwIjoxNjAyMzE2MDU5fQ.l3bKJhlNjHGzNJdSZ9faoNqxQNRIvbsIhohUxeikoRo',
+    // accessToken: '',
     refreshToken: null,
     userId: '5f634abd4f1e8c1a200f2c22',
 };

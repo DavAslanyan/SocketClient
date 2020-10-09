@@ -104,7 +104,6 @@ class ConversationDashboard extends Component {
                                  messagesLoading={messagesLoading}
                                  GetMessagesByRoomId={this.props.GetMessagesByRoomId}/>
 
-
             <NewMessageComponent saveTempMsg={saveTempMsg}
                                  roomId={roomId}
                                  tempMsg={tempMsg}

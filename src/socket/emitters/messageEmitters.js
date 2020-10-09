@@ -1,8 +1,8 @@
-import {socketMessageConnection} from "../api/socketMessageConnection";
-import {isMessagesConnected} from "../api/isConnected";
-import {MESSAGE_TYPES} from "../constants";
-import {store} from "../../redux/store";
-import {history} from "../../configs/history";
+import { socketMessageConnection } from "../api/socketMessageConnection";
+import { isMessagesConnected } from "../api/isConnected";
+import { MESSAGE_TYPES } from "../constants";
+import { store } from "../../redux/store";
+import { history } from "../../configs/history";
 
 export const GetNonOpenedRoomsCount = () => {
 
@@ -40,22 +40,24 @@ export const DeleteRoomById = (roomId) => {
         })
 };
 
-export const AddMessage = (roomId, text, filePath) => {
+export const AddMessage = (roomId, text, filePath = true) => {
     const payload = {
         roomId,
     };
     !!text && (payload.text = text);
-    !!filePath && (payload.filePath = filePath);
+    payload.fileIds = ['5f7c4ad1dd910713eceb5af6', '5f7c4ad1dd910713eceb5af5'];
+    //!!filePath && (payload.filePaths = ['5f7c4ad1dd910713eceb5af6', '5f7c4ad1dd910713eceb5af5']);
+    console.log('payload->', payload);
 
     isMessagesConnected() && socketMessageConnection.instance.emit(MESSAGE_TYPES.ADD_MESSAGE, payload,
-        (error, data) => {
-            console.log('add-message...', error, data);
-            if (data) {
-                store.dispatch({
-                    type: MESSAGE_TYPES.ADD_MESSAGE,
-                    payload: data,
-                    inCurrentRoom: true
-                });
+            (error, data) => {
+                console.log('add-message...', error, data);
+                if ( data ) {
+                    store.dispatch({
+                        type: MESSAGE_TYPES.ADD_MESSAGE,
+                        payload: data,
+                        inCurrentRoom: true
+                    });
             }
         })
 };

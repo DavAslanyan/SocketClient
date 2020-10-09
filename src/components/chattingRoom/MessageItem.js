@@ -54,10 +54,11 @@ class MessageItem extends PureComponent {
                 <div className={`message-content`}>
                     {message?.text && <pre className="msg-text"
                                            dangerouslySetInnerHTML={{__html: this.linkify(message.text)}}/>}
-                    {message?.filePath &&
-                    <img className={"msg-image"} src={resizeImage(generateMemberMediaUrl(message.filePath?.path),300,300)}
-                         onClick={() => openImagesSlider(message.filePath)}
-                         alt={'message'}/>}
+                    {message?.filePaths && message?.filePaths.map(img=>{
+                    return <img className={"msg-image"} src={resizeImage(generateMemberMediaUrl(img?.path),300,300)}
+                               onClick={() => openImagesSlider(message.img)}
+                               alt={'message'}/>
+                    })}
                     <div className="msg-date">{msgDate} PM</div>
                 </div>
 

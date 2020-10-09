@@ -57,6 +57,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    svg {
+      height: 60px;
+      width: 60px;
+    }
 
     .nav-bar-menu {
       display: none;

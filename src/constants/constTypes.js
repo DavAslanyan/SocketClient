@@ -2,7 +2,7 @@ export const DEFAULT_IMAGE_ID = '5db99765e2019423d6e0df80';
 
 export const MEDIA_Types = {
     PROFILE_PICTURE: 'profile-picture',
-    MESSAGE_IMAGE: 'message-image',
+    MESSAGE_IMAGE: 'message-files',
 };
 
 
